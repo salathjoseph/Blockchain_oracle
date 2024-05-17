@@ -19,3 +19,9 @@ def update_order_status(order_id, status):
         db.session.commit()
         return order
     return None
+
+def get_order_status(order_id):
+    order = Order.query.get(order_id)
+    if order:
+        return order.status
+    return None
